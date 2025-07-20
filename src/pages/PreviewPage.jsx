@@ -1,3 +1,5 @@
+//PreviewPage.jsx
+
 import React, { useRef, useContext } from "react";
 import jsPDF from "jspdf";
 import html2canvas from "html2canvas";
@@ -12,19 +14,9 @@ import {
     Sub,
     List,
     PdfButton,
+    PageWrapper
 } from "../components/StyledComponents";
-import styled from "styled-components";
 
-// עטיפת עמוד רגילה
-const PageWrapper = styled.div`
-  min-height: 100vh;
-  box-sizing: border-box;
-  background: ${({ theme }) => theme.background};
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  padding-bottom: 48px; // מעט רווח למטה כדי שלא ייחתך
-`;
 
 const PreviewPage = () => {
     const { editCv } = useContext(CvContext);
@@ -35,10 +27,8 @@ const PreviewPage = () => {
     const handleDownloadPDF = async () => {
         if (!cvRef.current) return;
 
-        // הסתרה רגעית של הכפתור רק בצילום
         if (pdfButtonRef.current) pdfButtonRef.current.style.display = "none";
 
-        // צילום - גודל canvas לפי PdfWrapper בפועל
         const canvas = await html2canvas(cvRef.current, {
             scale: 2,
             backgroundColor: theme.background,
@@ -50,7 +40,6 @@ const PreviewPage = () => {
 
         if (pdfButtonRef.current) pdfButtonRef.current.style.display = "";
 
-        // יחס המידות האמיתי של הדף המצולם
         const imgData = canvas.toDataURL("image/png");
         const pdf = new jsPDF("p", "mm", "a4");
         const pageWidth = pdf.internal.pageSize.getWidth();
@@ -131,7 +120,7 @@ const PreviewPage = () => {
                     <SectionTitle>Languages</SectionTitle>
                     <Sub>{editCv.languages || "No languages listed"}</Sub>
                 </CvSection>
-                {/* כפתור PDF לא נכנס לקובץ */}
+                
                 <PdfButton ref={pdfButtonRef} onClick={handleDownloadPDF}>
                     Download PDF
                 </PdfButton>

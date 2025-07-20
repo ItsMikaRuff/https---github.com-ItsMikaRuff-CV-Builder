@@ -63,51 +63,8 @@ export const StyledLink = styled(Link)`
   }
 `;
 
-export const HomeContainer = styled.div`
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  padding: 60px 20px 32px 20px;
-  background-color: ${({ theme }) => theme.background};
-  color: ${({ theme }) => theme.text};
-  min-height: 100vh; // תוספת שמונעת חיתוך
-  box-sizing: border-box;
-`;
+// Form
 
-export const Title = styled.h1`
-  font-size: 2.3rem;
-  font-weight: 700;
-  color: ${({ theme }) => theme.titleColor || theme.text};
-  text-align: center;
-  margin-bottom: 24px;
-  font-family: 'Poppins', sans-serif;
-`;
-
-export const Button = styled.button`
-  background-color: ${({ theme }) => theme.buttonBackground};
-  color: ${({ theme }) => theme.buttonText};
-  border: none;
-  border-radius: 7px;
-  padding: 10px 22px;
-  font-size: 1rem;
-  cursor: pointer;
-  font-weight: 500;
-  transition: background 0.3s;
-  margin: 8px 0;
-
-  &:hover {
-    background-color: ${({ theme }) => theme.buttonHoverBackground};
-  }
-
-  @media (max-width: 600px) {
-    width: 100%;
-    padding: 13px 0;
-    font-size: 1.08rem;
-    margin: 6px 0;
-  }
-`;
-
-// FormContainer רספונסיבי
 export const FormContainer = styled.form`
   display: flex;
   flex-direction: column;
@@ -133,23 +90,6 @@ export const FormContainer = styled.form`
   }
 `;
 
-// CV Card
-export const CvCard = styled.div`
-  background-color: ${({ theme }) => theme.cardBackground || '#fff'};
-  color: ${({ theme }) => theme.cardText || '#000'};
-  border: 1px solid ${({ theme }) => theme.containerBorder};
-  border-radius: 12px;
-  padding: 24px;
-  margin: 24px auto;
-  max-width: 700px;
-  box-shadow: 0 2px 6px rgba(0,0,0,0.07);
-
-  @media (max-width: 600px) {
-    padding: 14px 2vw;
-    margin: 12px auto;
-    max-width: 96vw;
-  }
-`;
 
 // CV Section
 export const CvSection = styled.section`
@@ -173,7 +113,7 @@ export const PdfWrapper = styled.div`
   box-shadow: 0 2px 8px rgba(0,0,0,0.08);
   max-width: 750px;
   margin: 32px auto 0 auto;
-  padding: 32px 24px 24px 24px; // בלי רווח מיותר למטה
+  padding: 32px 24px 24px 24px;
   font-family: 'Segoe UI', Arial, sans-serif;
   width: 100%;
   border: 1px solid ${({ theme }) => theme.containerBorder};
@@ -187,7 +127,6 @@ export const PdfWrapper = styled.div`
     margin: 10px auto 0 auto;
   }
 `;
-
 
 
 export const SectionTitle = styled.h2`
@@ -265,3 +204,42 @@ export const PdfButton = styled.button`
 `;
 
 // Other styled components 
+
+export const Title = styled.h1`
+  font-size: 2.3rem;
+  font-weight: 700;
+  color: ${({ theme }) => theme.titleColor || theme.text};
+  text-align: center;
+  margin-bottom: 24px;
+  font-family: 'Poppins', sans-serif;
+`;
+
+export const Button = styled.button`
+  background-color: ${({ theme }) => theme.buttonBackground};
+  color: ${({ theme }) => theme.buttonText};
+  border: none;
+  border-radius: 7px;
+  padding: 10px 22px;
+  font-size: 1rem;
+  cursor: pointer;
+  font-weight: 500;
+  transition: background 0.3s;
+  margin: 8px 0;
+
+  &:hover {
+    background-color: ${({ theme }) => theme.buttonHoverBackground};
+  }
+
+  @media (max-width: 600px) {
+    width: 100%;
+    padding: 13px 0;
+    font-size: 1.08rem;
+    margin: 6px 0;
+  }
+`;
+
+export const PageWrapper = styled.div`
+  min-height: 100vh;
+  box-sizing: border-box;
+  background: ${({ theme }) => theme.background};
+`;

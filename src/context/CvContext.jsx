@@ -1,3 +1,5 @@
+//CvContext.jsx
+
 import { createContext, useState } from "react";
 
 export const CvContext = createContext();
@@ -31,13 +33,11 @@ export const CvProvider = ({ children }) => {
         }));
     };
 
-    // שמירת CV (רק מעדכן, לא מאפס)
+    // שמירת CV 
     const saveCv = (cv) => {
         setEditCv(cv);
     };
 
-    // איפוס CV
-    const resetEditCv = () => setEditCv(emptyCv);
 
     return (
         <CvContext.Provider
@@ -47,7 +47,6 @@ export const CvProvider = ({ children }) => {
                 saveCv,
                 addExperience,
                 addEducation,
-                resetEditCv,
             }}
         >
             {children}

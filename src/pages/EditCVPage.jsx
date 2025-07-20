@@ -1,18 +1,10 @@
-
+//EditCvPage.jsx
 
 import React, { useContext, useState } from "react";
 import { CvContext } from "../context/CvContext";
-import { Button, FormContainer, Title } from "../components/StyledComponents";
+import { Button, FormContainer, Title, PageWrapper } from "../components/StyledComponents";
 import ExpertForm from "../components/ExpertForm";
 import { useNavigate } from "react-router";
-import styled from "styled-components";
-
-// עטיפה חדשה שמבטיחה שלא ייחתך בשום מסך
-const PageWrapper = styled.div`
-  min-height: 100vh;
-  box-sizing: border-box;
-  background: ${({ theme }) => theme.background};
-`;
 
 const EditCvPage = () => {
     const { editCv, setEditCv, saveCv, addEducation } = useContext(CvContext);
@@ -53,7 +45,7 @@ const EditCvPage = () => {
         e.preventDefault();
         saveCv(editCv);
         alert("CV Saved Successfully!");
-        navigate("/preview-cv"); // Redirect to preview page after saving
+        navigate("/preview-cv"); 
     };
 
     return (

@@ -1,6 +1,8 @@
+// ThemeContext.jsx
+
 import { createContext, useState } from "react";
 import { ThemeProvider as StyledThemeProvider } from 'styled-components';
-import { lightTheme, darkTheme } from '../styles/themes'; // ודאי שיש קובץ כזה
+import { lightTheme, darkTheme } from '../styles/themes'; 
 
 export const ThemeContext = createContext();
 

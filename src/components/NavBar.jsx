@@ -1,3 +1,5 @@
+// NavBar.jsx
+
 import { Logo, NavBarStyle, NavLinkItem, NavLinks, StyledLink } from "./StyledComponents";
 
 function Navbar() {
